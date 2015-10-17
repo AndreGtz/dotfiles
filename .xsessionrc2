@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Load resources
+
+xrdb -merge .Xresources
+
+# Set background image with feh
+feh --bg-scale ~/Downloads/aqua.jpg &
+
+# Set up an icon tray
+stalonetray &
+
+# Fire up apps
+
+xscreensaver -no-splash &
+
+# Start udiskie to handle media
+udiskie &
+
+# Start power manager
+xfce4-power-manager &
+
+# flux
+xflux -l 19.7039643 -g -101.2085714
+
+if [ -x /usr/bin/nm-applet ] ; then
+   nm-applet --sm-disable &
+fi
+
+exec xmonad

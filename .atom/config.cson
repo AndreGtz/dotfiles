@@ -1,0 +1,9 @@
+"*":
+  "exception-reporting":
+    userId: "79623256-4659-9e17-4b3c-e74698c608b4"
+  welcome:
+    showOnStartup: false
+  core:
+    autoHideMenuBar: true
+  editor:
+    invisibles: {}

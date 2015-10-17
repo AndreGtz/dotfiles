@@ -1,0 +1,54 @@
+sw_volume: 0
+audio_device_state:1:my_alsa
+audio_device_state:1:my_fifo
+state: pause
+current: 23
+time: 111.397000
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:STEINS; GATE Game OP Theme/3 Another Heaven 2012 Remix Ver..mp3
+1:PSP VN OP - Uchuu Engineer/01 - Uchuu Engineer.mp3
+2:Again-Yui.mp3
+3:EGOIST - Extra terrestrial Biological Entities/3. Extra terrestrial Biological Entities.mp3
+4:EGOIST - Extra terrestrial Biological Entities/12. Departures ~Anata ni Okuru Ai no Uta~.mp3
+5:EGOIST - Extra terrestrial Biological Entities/8. Ce que jˇaime ~inori no kyuuzitu~.mp3
+6:EGOIST - Extra terrestrial Biological Entities/4. Ame, Kimi wo Tsurete.mp3
+7:PSP VN OP - Uchuu Engineer/02 - Eien no Vector.mp3
+8:EGOIST - Extra terrestrial Biological Entities/2. The Everlasting Guilty Crown.mp3
+9:EGOIST - Extra terrestrial Biological Entities/9. Omoi wo Megurasu 100 no Jishou.mp3
+10:EGOIST - Extra terrestrial Biological Entities/5. Lovely Icecream Princess Sweetie.mp3
+11:My Dearest (Gulty Crown OP) - Supercell.mp3
+12:STEINS; GATE Game OP Theme/1 Hisenkei Jeniakku.mp3
+13:EGOIST - Extra terrestrial Biological Entities/1. Genzai no Akari .mp3
+14:XX/1-01 Intro.mp3
+15:PSP VN OP - Uchuu Engineer/03 - Sky Clad no Kansokusha (Remix).mp3
+16:EGOIST - Extra terrestrial Biological Entities/10. Kono Sekai de Mitsuketa Mono .mp3
+17:EGOIST - Extra terrestrial Biological Entities/7. LoveStruck.mp3
+18:EGOIST - Extra terrestrial Biological Entities/11. Planetes.mp3
+19:[KC][120128]Guilty Crown THEME SONGS COLLECTION/02 Departures ~Anata ni Okuru Ai no Uta~.mp3
+20:[KC][120128]Guilty Crown THEME SONGS COLLECTION/01 Euterupe ～Silence～.mp3
+21:[KC][120128]Guilty Crown THEME SONGS COLLECTION/01 Euterupe ～Silence～.mp3
+22:EGOIST - Extra terrestrial Biological Entities/6. Teokure.mp3
+23:STEINS; GATE Game OP Theme/2 Geometric spac.mp3
+24:PSP VN OP - Uchuu Engineer/01 - Uchuu Engineer.mp3
+25:[KC][120128]Guilty Crown THEME SONGS COLLECTION/03 βios.mp3
+26:[KC][120128]Guilty Crown THEME SONGS COLLECTION/04  Rё.L feat. Cyua .mp3
+27:Akeboshi Wind.mp3
+28:Angel Beats!/02.Brave Song.mp3
+29:Angel Beats!/02 - Alchemy.mp3
+30:Angel Beats!/02 - Alchemy.mp3
+31:Angel Beats!/02 Thousand Enemies.mp3
+32:Angel Beats!/05 Run With Wolves.mp3
+33:Angel Beats!/07 Rain Song.mp3
+34:Angel Beats!/01 - Little Braver.mp3
+35:Steins Gate OP Single - Hacking to the Gate/01 - Hacking to the Gate.mp3
+36:Steins Gate OP Single - Hacking to the Gate/02 - Reliance.mp3
+37:Steins_Gate_ED+BK/01 Toki Tsukasadoru Juuni no Meiyaku.mp3
+38:Steins_Gate_ED+BK/02 Uruwashiki Seduce.mp3
+playlist_end

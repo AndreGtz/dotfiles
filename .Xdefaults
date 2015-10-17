@@ -1,0 +1,54 @@
+## FONTS
+####################
+URxvt*font: xft:Liberation Mono:pixelsize=14:antialias=true:hinting=true
+URxvt*boldFont: xft:Liberation Mono:bold:pixelsize=14:antialias=true:hinting=true
+URxvt*letterSpace: -1
+ 
+## SCROLLBAR
+####################################################################
+# scrollbar - true (default) or false
+URxvt*scrollBar: false
+# scrollbar position - left=false (default) or right=true
+URxvt*scrollBar_right: false
+# scrollbar style - rxvt (default), plain, next, or xterm
+URxvt*scrollstyle: rxvt
+ 
+## COLORS
+##################################################################
+!special
+*background: #333333
+*foreground: #FFFFFF
+*cursorColor: #a0a0a0
+ 
+!black
+*color0:    #030001
+*color8:    #030001
+ 
+!red
+*color1:    #d62e30
+*color9:    #d62e30
+ 
+!green
+*color2:    #a9da88
+*color10:   #cafcb7
+ 
+!yellow
+*color3: #efc818
+*color11: #fde253
+ 
+!blue
+*color4: #26ade4
+*color12: #5bc1f1
+ 
+!magenta
+*color5:    #db2464
+*color13:   #9d2953
+ 
+!cyan
+*color6:    #73c8a9
+*color14:   #73c8a9
+ 
+ 
+!white
+*color7: #FFFFFF
+*color15: #FFFFFF
