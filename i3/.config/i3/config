@@ -10,6 +10,73 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $editor vim
+
+set $ws1  "1: "
+set $ws2  "2: "
+set $ws3  "3: "
+set $ws4  "4: "
+set $ws5  "5: "
+set $ws6  "6: "
+set $ws7  "7: "
+set $ws8  "8: "
+set $ws9  "9: "
+set $ws10 "10: "
+
+set $default_gaps_inner 10
+set $default_gaps_outer 0
+gaps inner 10
+gaps outer 0
+
+hide_edge_borders both
+new_window none
+smart_borders on
+
+set $mode_gaps gaps
+set $mode_gaps_outer outer gaps
+set $mode_gaps_inner inner gaps
+
+bindsym $mod+Shift+g mode "$mode_gaps"
+mode "$mode_gaps" {
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+
+    bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner current set 0" && i3-msg "gaps outer current set 0"
+    bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner current set $default_gaps_inner" && i3-msg "gaps outer current set $default_gaps_outer"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     mode "default", gaps inner current set 0
+    bindsym d     mode "default", gaps inner current set $default_gaps_inner
+
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     mode "default", gaps inner all set 0
+    bindsym Shift+d     mode "default", gaps inner all set $default_gaps_inner
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_outer" {
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     mode "default", gaps outer current set 0
+    bindsym d     mode "default", gaps outer current set $default_gaps_outer
+
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     mode "default", gaps outer all set 0
+    bindsym Shift+d     mode "default", gaps outer all set $default_gaps_outer
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -32,9 +99,7 @@ font pango:Liberation Mono 10
 #  Gaps Options
 #######################################
 
-gap_size 10
 
-new_window 1pixel
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -47,7 +112,7 @@ new_window 1pixel
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -177,24 +242,34 @@ client.urgent #51c4d4 #ecedee #51c4d4
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-		position top
-		font pango:Liberation Mono, Icons 8
-	colors {
-		background #333333
-		statusline #cadedd
-		separator #d62e30
-
-		focused_workspace  #007fd4 #007fd4 #ffffff
-        	active_workspace   #007fd4 #007fd4 #ffffff
-        	inactive_workspace #4d4d4d #4d4d4d #ffffff
-        	urgent_workspace   #ff7443 #4d4d4d #ffffff
-	}
-	status_command i3status -c ~/.i3/i3status.conf 
-}
+#bar {
+#       status_command i3blocks
+#       i3bar_command i3bar -t
+# 	position top
+#	font pango:Liberation Mono, Icons 8
+#       strip_workspace_numbers yes
+#       separator_symbol "|"
+#       height 34
+#	colors {
+#		background #333333
+#		statusline #cadedd
+#		separator #d62e30
+#
+#		focused_workspace  #007fd4 #007fd4 #ffffff
+#        	active_workspace   #007fd4 #007fd4 #ffffff
+#        	inactive_workspace #4d4d4d #4d4d4d #ffffff
+#        	urgent_workspace   #ff7443 #4d4d4d #ffffff
+#	}
+#}
 # Set background image with feh
-exec --no-startup-id feh --bg-scale ~/Pictures/cube.png
+exec --no-startup-id feh --bg-scale ~/bg-howl.jpg
+
+###########
+# POLYBAR #
+###########
+
+exec_always --no-startup-id killall polybar; polybar white
+exec_always --no-startup-id polybar window
 
 #gnome themes
 exec --no-startup-id gnome-settings-daemon
@@ -204,9 +279,12 @@ exec --no-startup-id xrdb ~/.Xresources
 
 #wifi applet
 exec --no-startup-id nm-applet
-#flux
-exec --no-startup-id ~.xflux.sh
+# redshift
+exec --no-startup-id redshift &
+# compton
+exec --no-startup-id compton --config ~/.config/compton.conf -b
 # key bindings
-bindsym $mod+Next exec pactl set-sink-volume 0 -- -10%
-bindsym $mod+Prior exec pactl set-sink-volume 0 -- +10%
-bindsym $mod+Home exec pactl set-sink-mute 0 -- toggle
+bindsym $mod+Next exec pactl set-sink-volume 1 -10%
+bindsym $mod+Prior exec pactl set-sink-volume 1 +10%
+bindsym $mod+Home exec pactl set-sink-mute 1
+bindsym $mod+Shift+x exec betterlockscreen -l

@@ -1,0 +1,270 @@
+[bar/white]
+
+;------------;
+; DIMENSIONS ;
+;------------;
+
+width = 100%
+height = 34
+offset-y = 0
+offset-x = 0
+
+;border-top-size = 10
+;border-bottom-size = 0
+;border-right-size = 10
+;border-left-size = 10
+
+;----------;
+; LOCATION ;
+;----------;
+
+bottom = false
+monitor = HDMI-0
+wm-restack = none 
+override-redirect = false 
+margin-top = 0
+margin-bottom = 40
+
+;-------;
+; FONTS ;
+;-------;
+
+font-0 = monospace:size=8;3
+font-1 = Weather Icons:size=12;1
+
+;--------;
+; COLORS ;
+;--------;
+
+background = #44cccccc 
+foreground = #eeeeee
+border-color = 0
+
+;---------------;
+; MISCELLANEOUS ;
+;---------------;
+
+fixed-center = true
+padding-left = 2 
+padding-right = 2
+module-margin = 1.5
+
+modules-left = volume music openweathermap-detail
+modules-center = i3
+modules-right = keyboard network ssid cpu memory date time
+
+;----------;
+; SETTINGS ;
+;----------;
+
+screenchange-reload = true
+
+[bar/music]
+;------------;
+; DIMENSIONS ;
+;------------;
+
+width = 100%
+height = 20
+offset-y = 0
+offset-x = 0
+
+border-top-size = 10
+border-bottom-size = 0
+border-right-size = 10
+border-left-size = 10
+
+;----------;
+; LOCATION ;
+;----------;
+
+bottom = true
+monitor = eDP-1
+wm-restack = i3 
+override-redirect = true 
+
+;-------;
+; FONTS ;
+;-------;
+
+font-0 = monospace:size=10;3
+
+;--------;
+; COLORS ;
+;--------;
+
+background = 0
+foreground = #c5a9f9
+border-color = 0
+
+;---------------;
+; MISCELLANEOUS ;
+;---------------;
+
+fixed-center = true
+padding-left = 2 
+padding-right = 2
+module-margin = 1.5
+
+;modules-left = 
+modules-center = music
+;modules-right = 
+
+
+;---------;
+; MODULES ;
+;---------;
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+enable-scroll = false
+
+label-unfocused-foreground = #55ffffff
+label-focused-foreground = #ffffffff
+label-urgent-foreground = #ff0000
+
+[module/time]
+type = internal/date
+
+interval = 1.0
+
+date = %H:%M
+
+[module/date]
+type = internal/date
+date = %Y-%m-%d
+label = %date%
+
+[module/volume]
+type = internal/alsa
+format-volume = ♪ <label-volume>
+format-muted = MUTE
+
+[module/keyboard]
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+[module/music]
+type = custom/script
+exec = ~/polybar-scripts/spotify.sh
+interval = 2
+tail = true
+
+click-left = mocp -r
+click-middle = mocp -G
+click-right = mocp -f
+
+scroll-up = mocp -k 10
+scroll-down = mocp -k -10
+
+[module/cpu]
+type = internal/cpu
+label = %percentage%%
+
+[module/memory]
+type = internal/memory
+label =  %gb_used%
+
+[module/ipadd]
+type = custom/script
+exec = hostname -I | cut -d ' ' -f 1
+
+[module/ssid]
+type = custom/script
+exec = if [ "$(iwgetid)" = "" ]; then echo Ethernet; else echo $(iwgetid -r); fi
+click-middle = notify-send $(hostname -I | cut -d ' ' -f 1)
+
+[module/network]
+type = internal/network
+interface = enp3s0 
+label-connected = %downspeed% | %upspeed%
+
+[module/temperature]
+type = internal/temperature
+interval = 5
+
+[module/openweathermap-full]
+type = custom/script
+exec = ~/polybar-scripts/polybar-scripts/openweathermap-fullfeatured/openweathermap-fullfeatured.sh
+interval = 600
+label-font = 3
+
+[module/openweathermap-detail]
+type = custom/script
+exec = ~/polybar-scripts/polybar-scripts/openweathermap-detailed/openweathermap-detailed.sh
+interval = 600
+label-font = 1
+
+[bar/float]
+
+inherit = bar/white
+
+background = #90ffffff
+
+tray-position = center
+
+
+[bar/window]
+;------------;
+; DIMENSIONS ;
+;------------;
+
+width = 100%
+height = 15
+offset-y = 0
+offset-x = 0
+
+border-top-size = 10
+border-bottom-size = 0
+border-right-size = 10
+border-left-size = 10
+
+;----------;
+; LOCATION ;
+;----------;
+
+bottom = true
+;monitor = eDP-1
+wm-restack = i3
+override-redirect = true 
+
+;-------;
+; FONTS ;
+;-------;
+
+font-0 = monospace:size=8;3
+
+;--------;
+; COLORS ;
+;--------;
+
+background = 0
+foreground = #eeeeee
+border-color = 0
+
+;---------------;
+; MISCELLANEOUS ;
+;---------------;
+
+fixed-center = true
+padding-left = 2 
+padding-right = 2
+module-margin = 1.5
+
+;modules-left = 
+modules-center = windows
+;modules-right = 
+
+tray-position = right
+tray-detatched = false 
+
+[module/windows]
+type = internal/xwindow
+
+format = <label>
